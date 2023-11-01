@@ -1,5 +1,12 @@
+import Layout from './components/Layout';
+import Signup from './pages/signup';
+
 function App() {
-    return <div>Hello</div>;
+    return (
+        <Layout>
+            <Signup />
+        </Layout>
+    );
 }
 
 export default App;
