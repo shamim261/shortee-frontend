@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import Form from '../components/Form';
-import TextInput from '../components/TextInput';
+import Form from './Form';
+import TextInput from './TextInput';
 
-export default function Signup() {
+export default function SignupComponent() {
     return (
         <section className="items-center justify-center pt-24 ">
             <h1 className="uppercase text-center m-2 text-4xl font-bold">SIGNUP</h1>
@@ -17,7 +17,7 @@ export default function Signup() {
                 </Form>
                 <p className="text-center mt-2">
                     Already have an account?
-                    <Link to="/login">
+                    <Link to="/auth" state={false}>
                         <span className="text-[#5A4AE3] hover:text-[#5041d1]"> Login Now</span>
                     </Link>
                 </p>

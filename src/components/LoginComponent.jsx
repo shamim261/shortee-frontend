@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import Form from '../components/Form';
-import TextInput from '../components/TextInput';
+import Form from './Form';
+import TextInput from './TextInput';
 
-export default function Login() {
+export default function LoginComponent() {
     return (
         <section className="items-center justify-center pt-24 ">
             <h1 className="uppercase text-center m-2 text-4xl font-bold">Login</h1>
