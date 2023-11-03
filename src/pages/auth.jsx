@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import LoginC from '../components/LoginComponent';
-import SignupC from '../components/SignupComponent';
+import LoginComponent from '../components/LoginComponent';
+import SignupComponent from '../components/SignupComponent';
 
 export default function Auth() {
     const { state } = useLocation();
@@ -11,5 +11,5 @@ export default function Auth() {
         setRegister(state);
     }, [state]);
 
-    return register ? <SignupC /> : <LoginC />;
+    return register ? <SignupComponent /> : <LoginComponent />;
 }

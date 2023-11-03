@@ -14,3 +14,7 @@ main {
     min-height: 80vh;
     margin: auto;
 }
+
+a {
+    @apply text-primary;
+}
