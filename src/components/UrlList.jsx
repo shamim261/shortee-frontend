@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import copySVG from '../assets/img/copy.svg';
 export default function UrlList() {
     function truncate(str, maxLength) {
@@ -9,7 +10,7 @@ export default function UrlList() {
 
     return (
         <div className="relative overflow-x-auto">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+            <table className="w-full text-md text-left text-gray-500 dark:text-gray-400">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" className="px-6 py-3">
@@ -32,21 +33,28 @@ export default function UrlList() {
                             scope="row"
                             className="px-6 font-normal py-4 text-gray-900 whitespace-nowrap dark:text-white"
                         >
-                            <a href="#">{truncate('https://downforeveryoneorjustme.com/', 20)}</a>
+                            <Link to="#">
+                                {truncate('https://downforeveryoneorjustme.com/', 20)}
+                            </Link>
                         </th>
-                        <td className="px-6 py-4 flex">
-                            <a href="#"> {genSlice('https://shortee.devshamim.com/n5s8sc8')}</a>{' '}
+                        <td className="px-6 py-4 break-words flex">
+                            <Link to="#"> {genSlice('https://shortee.devshamim.com/n5s8sc8')}</Link>{' '}
                             <img className="w-4 ml-1" src={copySVG} />
                         </td>
-                        <td className="px-6 py-4 text-center">1</td>
+                        <td className="px-6 py-4 text-center md:text-left">1</td>
                         <td className="px-6 py-4 flex ">
-                            <a className="mr-1" href="">
+                            <Link
+                                state={{ editForm: true, value: 'Hello' }}
+                                value="hello"
+                                className="mr-1"
+                                to="/dashboard"
+                            >
                                 Edit
-                            </a>
+                            </Link>
                             |
-                            <a href="#" className="ml-1 text-red-500">
+                            <Link to="#" className="ml-1 text-red-500">
                                 Delete
-                            </a>
+                            </Link>
                         </td>
                     </tr>
                 </tbody>
