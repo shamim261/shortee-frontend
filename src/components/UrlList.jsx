@@ -38,7 +38,11 @@ export default function UrlList() {
                             </Link>
                         </th>
                         <td className="px-6 py-4 break-words flex">
-                            <Link to="#"> {genSlice('https://shortee.devshamim.com/n5s8sc8')}</Link>{' '}
+                            <Link to="#">
+                                <div className="w-32">
+                                    {genSlice('https://shortee.devshamim.com/n5s8sc8')}
+                                </div>{' '}
+                            </Link>{' '}
                             <img className="w-4 ml-1" src={copySVG} />
                         </td>
                         <td className="px-6 py-4 text-center md:text-left">1</td>
