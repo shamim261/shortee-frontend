@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
-import copySVG from '../assets/img/copy.svg';
 export default function UrlList() {
     function truncate(str, maxLength) {
         return str.length > maxLength ? str.slice(0, maxLength) + '...' : str;
     }
     function genSlice(str) {
         return str.slice(8, 99999);
+    }
+    function copyClip(text) {
+        navigator.clipboard.writeText(text);
+        alert('Link copied to clipboard!');
     }
 
     return (
@@ -37,25 +40,22 @@ export default function UrlList() {
                                 {truncate('https://downforeveryoneorjustme.com/', 20)}
                             </Link>
                         </th>
-                        <td className="px-6 py-4 break-words flex">
+                        <td className="px-6 py-3 break-words flex">
                             <Link to="#">
-                                <div className="w-32">
+                                <div className="w-32 md:w-full">
                                     {genSlice('https://shortee.devshamim.com/n5s8sc8')}
-                                </div>{' '}
-                            </Link>{' '}
-                            <img className="w-4 ml-1" src={copySVG} />
+                                </div>
+                            </Link>
+                            <button
+                                onClick={() => copyClip('test !')}
+                                type="button"
+                                className="relative bottom-1 ml-1 md:border-2 text-hover py-0 rounded-md md:bg-primary md:text-slate-100 md:p-1 md:mb-2"
+                            >
+                                copy
+                            </button>
                         </td>
                         <td className="px-6 py-4 text-center md:text-left">1</td>
-                        <td className="px-6 py-4 flex ">
-                            <Link
-                                state={{ editForm: true, value: 'Hello' }}
-                                value="hello"
-                                className="mr-1"
-                                to="/dashboard"
-                            >
-                                Edit
-                            </Link>
-                            |
+                        <td className="px-6 py-4  ">
                             <Link to="#" className="ml-1 text-red-500">
                                 Delete
                             </Link>
