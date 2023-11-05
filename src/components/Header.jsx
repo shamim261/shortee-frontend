@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import exit from '../assets/img/exit.svg';
 import logoBlue from '../assets/img/logo_transparent.png';
+import user from '../assets/img/user.svg';
 export default function Header() {
     const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -17,8 +19,10 @@ export default function Header() {
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                 <a href="/" className="flex items-center">
-                    <img src={logoBlue} className="h-8 mr-3" alt="Flowbite Logo" />
+                    <img src={logoBlue} className="h-8 mr-3" alt="Shortee Logo" />
                 </a>
+                <img src={user} className="md:hidden relative left-36 w-6 mr-1" alt="" />
+                <span className="md:hidden relative left-16 text-gray-500 ml-1">shamim</span>
                 <button
                     onClick={toggleMobileMenu}
                     data-collapse-toggle="navbar-default"
@@ -44,6 +48,7 @@ export default function Header() {
                         />
                     </svg>
                 </button>
+
                 <div
                     className={` ${mobileMenu ? '' : 'hidden'} w-full md:block md:w-auto`}
                     id="navbar-default"
@@ -78,6 +83,21 @@ export default function Header() {
                                 }
                             >
                                 Login/Signup
+                            </NavLink>
+                        </li>
+                        <li className=" hidden md:block md:flex md:items-center">
+                            <img src={user} className="w-6 mr-1" alt="" />
+                            <span className="disabled text-gray-500">shamim</span>
+                            <img src={exit} className="cursor-pointer ml-4 w-5" alt="" />
+                        </li>
+                        <li className="md:hidden">
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    isActive ? activeClass : inactiveClass
+                                }
+                            >
+                                Logout
                             </NavLink>
                         </li>
                     </ul>

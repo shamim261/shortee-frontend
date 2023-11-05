@@ -554,6 +554,38 @@ video {
   bottom: 0.25rem;
 }
 
+.left-5 {
+  left: 1.25rem;
+}
+
+.left-8 {
+  left: 2rem;
+}
+
+.left-24 {
+  left: 6rem;
+}
+
+.left-20 {
+  left: 5rem;
+}
+
+.left-16 {
+  left: 4rem;
+}
+
+.left-28 {
+  left: 7rem;
+}
+
+.left-32 {
+  left: 8rem;
+}
+
+.left-36 {
+  left: 9rem;
+}
+
 .m-2 {
   margin: 0.5rem;
 }
@@ -590,6 +622,14 @@ video {
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
 }
 
 .mr-3 {
@@ -660,6 +700,10 @@ video {
   width: 1.25rem;
 }
 
+.w-6 {
+  width: 1.5rem;
+}
+
 .w-80 {
   width: 20rem;
 }
@@ -682,6 +726,10 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .flex-col {

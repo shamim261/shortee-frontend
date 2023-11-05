@@ -1,16 +1,6 @@
 import { Link } from 'react-router-dom';
+import { copyClip, genSlice, truncate } from '../utilities/util';
 export default function UrlList() {
-    function truncate(str, maxLength) {
-        return str.length > maxLength ? str.slice(0, maxLength) + '...' : str;
-    }
-    function genSlice(str) {
-        return str.slice(8, 99999);
-    }
-    function copyClip(text) {
-        navigator.clipboard.writeText(text);
-        alert('Link copied to clipboard!');
-    }
-
     return (
         <div className="relative overflow-x-auto">
             <table className="w-full text-md text-left text-gray-500 dark:text-gray-400">
