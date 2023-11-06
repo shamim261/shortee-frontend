@@ -10,25 +10,30 @@ export default function SignupComponent() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(false);
+    const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
     const { state, dispatch } = useAuth();
 
     const navigate = useNavigate();
 
     async function submitHandler(e) {
+        setError('');
         e.preventDefault();
 
         try {
-            const { data } = await axios.post('api/users', {
+            const { data } = await axios.post('api/users/signup', {
                 name: fullName,
                 username: username,
                 email: email,
                 password: password,
             });
-            dispatch({ type: 'USER_SIGN_IN', payload: data });
-            localStorage.setItem('userInfo', JSON.stringify(data));
-            navigate('/dashboard');
+            if (data.id) {
+                dispatch({ type: 'USER_SIGN_IN', payload: data });
+                localStorage.setItem('userInfo', JSON.stringify(data));
+                navigate('/dashboard');
+            } else {
+                setError(data.message);
+            }
         } catch (err) {
             console.log(err);
         }
@@ -70,6 +75,7 @@ export default function SignupComponent() {
                         type="password"
                         placeholder="Password"
                     />
+                    <span className="text-red-600 ">{error ? error : ''}</span>
                     <button
                         type="submit"
                         className="m-2 border p-3 w-96 text-slate-200 rounded-lg bg-[#5A4AE3] hover:bg-[#5041d1] transition-colors"

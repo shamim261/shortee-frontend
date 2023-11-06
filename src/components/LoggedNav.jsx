@@ -1,15 +1,16 @@
 import axios from 'axios';
 import { useState } from 'react';
-
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../assets/contexts/AuthContext';
 import exit from '../assets/img/exit.svg';
 import logoBlue from '../assets/img/logo_transparent.png';
 import user from '../assets/img/user.svg';
-export default function Header() {
+export default function LoggedNav() {
+    const username = localStorage.getItem('userInfo')
+        ? JSON.parse(localStorage.getItem('userInfo')).username
+        : '';
+
     const [mobileMenu, setMobileMenu] = useState(false);
-    const userInfo = localStorage.getItem('userInfo');
-    const username = userInfo ? JSON.parse(userInfo).username : '';
     const { state, dispatch } = useAuth();
     const navigate = useNavigate();
 
@@ -37,6 +38,7 @@ export default function Header() {
             console.log(err);
         }
     }
+
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -87,51 +89,37 @@ export default function Header() {
                                 Home
                             </NavLink>
                         </li>
-                        {userInfo ? (
-                            <>
-                                <li>
-                                    <NavLink
-                                        to="/dashboard"
-                                        className={({ isActive }) =>
-                                            isActive ? activeClass : inactiveClass
-                                        }
-                                    >
-                                        Dashboard
-                                    </NavLink>
-                                </li>
-                                <li className=" hidden md:block md:flex md:items-center">
-                                    <img src={user} className="w-6 mr-1" alt="" />
-                                    <span className="disabled text-gray-500">{username}</span>
-                                    <img
-                                        onClick={handleLogout}
-                                        src={exit}
-                                        className="cursor-pointer ml-4 w-5"
-                                        alt=""
-                                    />
-                                </li>
-                                <li className="md:hidden">
-                                    <NavLink
-                                        onClick={handleLogout}
-                                        className={({ isActive }) =>
-                                            isActive ? activeClass : inactiveClass
-                                        }
-                                    >
-                                        Logout
-                                    </NavLink>
-                                </li>
-                            </>
-                        ) : (
-                            <li>
-                                <NavLink
-                                    to="/auth"
-                                    className={({ isActive }) =>
-                                        isActive ? activeClass : inactiveClass
-                                    }
-                                >
-                                    Login/Signup
-                                </NavLink>
-                            </li>
-                        )}
+                        <li>
+                            <NavLink
+                                to="/dashboard"
+                                className={({ isActive }) =>
+                                    isActive ? activeClass : inactiveClass
+                                }
+                            >
+                                Dashboard
+                            </NavLink>
+                        </li>
+
+                        <li className=" hidden md:block md:flex md:items-center">
+                            <img src={user} className="w-6 mr-1" alt="" />
+                            <span className="disabled text-gray-500">{username}</span>
+                            <img
+                                onClick={handleLogout}
+                                src={exit}
+                                className="cursor-pointer ml-4 w-5 hover:w-6 transition-all"
+                                alt=""
+                            />
+                        </li>
+                        <li className="md:hidden">
+                            <NavLink
+                                onClick={handleLogout}
+                                className={({ isActive }) =>
+                                    isActive ? activeClass : inactiveClass
+                                }
+                            >
+                                Logout
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>

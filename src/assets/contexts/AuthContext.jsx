@@ -16,6 +16,8 @@ function reducer(state, action) {
     switch (action.type) {
         case 'USER_SIGN_IN':
             return { ...state, userInfo: action.payload };
+        case 'USER_LOGOUT':
+            return { ...state, userInfo: null };
         default:
             return state;
     }
