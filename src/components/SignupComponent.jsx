@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../assets/contexts/AuthContext';
 import Form from './Form';
 import TextInput from './TextInput';
 
@@ -11,6 +12,9 @@ export default function SignupComponent() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(true);
+    const { state, dispatch } = useAuth();
+
+    const navigate = useNavigate();
 
     async function submitHandler(e) {
         e.preventDefault();
@@ -22,6 +26,9 @@ export default function SignupComponent() {
                 email: email,
                 password: password,
             });
+            dispatch({ type: 'USER_SIGN_IN', payload: data });
+            localStorage.setItem('userInfo', JSON.stringify(data));
+            navigate('/dashboard');
         } catch (err) {
             console.log(err);
         }
