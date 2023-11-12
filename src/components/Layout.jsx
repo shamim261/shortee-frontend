@@ -4,11 +4,13 @@ import Header from './Header';
 export default function Layout({ children }) {
     return (
         <>
-            <Header />
-            <div className="dark:bg-gray-800">
-                <main>{children}</main>
+            <div className="min-h-screen">
+                <Header />
+                <div className="dark:bg-gray-800">
+                    <main>{children}</main>
+                </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     );
 }

@@ -59,9 +59,7 @@ export default function UrlList() {
                                     copy
                                 </button>
                             </td>
-                            <td className="px-6 py-4 text-center md:text-left">
-                                {url.visitedHistory.length}
-                            </td>
+                            <td className="px-6 py-4 text-center md:text-left"></td>
                             <td className="px-6 py-4  ">
                                 <Link className="ml-1 text-red-500">Delete</Link>
                             </td>

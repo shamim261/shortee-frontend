@@ -5,6 +5,7 @@ import PublicOutlet from './components/PublicOutlet';
 import Auth from './pages/auth';
 import Dashboard from './pages/dashboard';
 import Home from './pages/home';
+import RedirectPage from './pages/redirectPage';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path="/auth" element={<PublicOutlet />}>
                         <Route index element={<Auth />} />
                     </Route>
+                    <Route path="/:shortID" element={<RedirectPage />} />
                 </Routes>
             </Layout>
         </BrowserRouter>
