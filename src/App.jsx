@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DeleteFunc from './components/DeleteFunc';
 import Layout from './components/Layout';
 import PrivateOutlet from './components/PrivateOutlet';
 import PublicOutlet from './components/PublicOutlet';
@@ -20,6 +21,7 @@ function App() {
                         <Route index element={<Auth />} />
                     </Route>
                     <Route path="/:shortID" element={<RedirectPage />} />
+                    <Route path="/d/:shortID" element={<DeleteFunc />} />
                 </Routes>
             </Layout>
         </BrowserRouter>

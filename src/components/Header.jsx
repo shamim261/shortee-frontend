@@ -43,8 +43,8 @@ export default function Header() {
                 <a href="/" className="flex items-center">
                     <img src={logoBlue} className="h-8 mr-3" alt="Shortee Logo" />
                 </a>
-                <img src={user} className="md:hidden relative left-36 w-6 mr-4" alt="" />
-                <span className="md:hidden relative left-16 text-gray-500 ml-1">{username}</span>
+                <img src={user} className="md:hidden relative left-28 w-6 " alt="" />
+                <span className="md:hidden relative left-16 text-gray-500 mr-3">{username}</span>
                 <button
                     onClick={toggleMobileMenu}
                     data-collapse-toggle="navbar-default"
@@ -99,7 +99,7 @@ export default function Header() {
                                         Dashboard
                                     </NavLink>
                                 </li>
-                                <li className=" hidden md:block md:flex md:items-center">
+                                <li className=" hidden md:flex md:items-center">
                                     <img src={user} className="w-6 mr-1" alt="" />
                                     <span className="disabled text-gray-500">{username}</span>
                                     <img
