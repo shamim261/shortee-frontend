@@ -13,7 +13,7 @@ export default function RedirectPage() {
 
                 if (data && data.mainURL) {
                     setError('');
-                    window.location.href = data.mainURL;
+                    window.location.replace(data.mainURL);
                 } else {
                     setError(data.error);
                 }

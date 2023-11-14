@@ -32,7 +32,10 @@ export default function SignupComponent() {
                 localStorage.setItem('userInfo', JSON.stringify(data));
                 navigate('/dashboard');
             } else {
-                setError(data.message);
+                setError();
+
+                Object.keys(data.errors).map((fname) => setError(fname));
+                console.log(error);
             }
         } catch (err) {
             console.log(err);
@@ -75,7 +78,9 @@ export default function SignupComponent() {
                         type="password"
                         placeholder="Password"
                     />
-                    <span className="text-red-600 ">{error ? error : ''}</span>
+                    <span className="text-red-600 ">
+                        {error ? `${error} already registered` : ''}
+                    </span>
                     <button
                         type="submit"
                         className="m-2 border p-3 w-96 text-slate-200 rounded-lg bg-[#5A4AE3] hover:bg-[#5041d1] transition-colors"
