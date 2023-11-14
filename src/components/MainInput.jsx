@@ -11,16 +11,27 @@ export default function MainInput() {
 
     async function submitHandler(e) {
         e.preventDefault();
+
+        let updatedUrl = url;
+
+        if (!url.startsWith('http://') && !url.startsWith('https://')) {
+            updatedUrl = `http://${url}`;
+        }
+
         if (!userInfo) {
             navigate('/auth');
         }
         try {
             const { data } = await axios.post('api/urls', {
-                url: url,
+                url: updatedUrl,
             });
             if (data.success) {
                 alert(data.success);
                 navigate('/dashboard');
+            } else if (data.errors) {
+                setError();
+
+                Object.keys(data.errors).map((fname) => setError(fname));
             }
         } catch (err) {
             setError(err);
@@ -42,6 +53,7 @@ export default function MainInput() {
                         Shorten URL
                     </button>
                 </Form>
+                <span className="text-red-600 ">{error ? `Invalid URL` : ''}</span>
             </div>
         </>
     );
