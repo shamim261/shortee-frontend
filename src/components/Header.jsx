@@ -105,7 +105,7 @@ export default function Header() {
                                     <img
                                         onClick={handleLogout}
                                         src={exit}
-                                        className="cursor-pointer ml-4 w-5"
+                                        className="cursor-pointer ml-4 w-5 hover:w-6 transition-all"
                                         alt=""
                                     />
                                 </li>

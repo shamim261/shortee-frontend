@@ -1,16 +1,13 @@
 export default function Footer() {
     return (
-        <footer className="bg-white dark:bg-gray-900">
+        <footer className="bg-white ">
             <div className="mx-auto w-full max-w-full">
-                <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-                    <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
+                <div className="px-4 py-6 bg-gray-100 md:flex md:items-center md:justify-between">
+                    <span className="text-sm text-gray-500  sm:text-center">
                         © 2023 <a href="/">Shortee</a>. All Rights Reserved.
                     </span>
                     <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
-                        <a
-                            href="#"
-                            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                        >
+                        <a href="#" className="text-gray-400 hover:text-gray-900 ">
                             <svg
                                 className="w-4 h-4"
                                 aria-hidden="true"
@@ -26,10 +23,7 @@ export default function Footer() {
                             </svg>
                             <span className="sr-only">Facebook page</span>
                         </a>
-                        <a
-                            href="#"
-                            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                        >
+                        <a href="#" className="text-gray-400 hover:text-gray-900 ">
                             <svg
                                 className="w-4 h-4"
                                 aria-hidden="true"
@@ -41,10 +35,7 @@ export default function Footer() {
                             </svg>
                             <span className="sr-only">Discord community</span>
                         </a>
-                        <a
-                            href="#"
-                            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                        >
+                        <a href="#" className="text-gray-400 hover:text-gray-900">
                             <svg
                                 className="w-4 h-4"
                                 aria-hidden="true"
@@ -60,10 +51,7 @@ export default function Footer() {
                             </svg>
                             <span className="sr-only">Twitter page</span>
                         </a>
-                        <a
-                            href="#"
-                            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                        >
+                        <a href="#" className="text-gray-400 hover:text-gray-900 ">
                             <svg
                                 className="w-4 h-4"
                                 aria-hidden="true"
@@ -79,10 +67,7 @@ export default function Footer() {
                             </svg>
                             <span className="sr-only">GitHub account</span>
                         </a>
-                        <a
-                            href="#"
-                            className="text-gray-400 hover:text-gray-900 dark:hover:text-white"
-                        >
+                        <a href="#" className="text-gray-400 hover:text-gray-900 ">
                             <svg
                                 className="w-4 h-4"
                                 aria-hidden="true"
