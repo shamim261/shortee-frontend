@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 function truncate(str, maxLength) {
     return str.length > maxLength ? str.slice(0, maxLength) + '...' : str;
 }
@@ -7,11 +8,21 @@ function truncate(str, maxLength) {
  }
  function copyClip(text) {
      navigator.clipboard.writeText(text);
-     alert('Link copied to clipboard!');
+     toast.success('Text copied to clipboard', {
+         position: 'top-right',
+         autoClose: 5000,
+         hideProgressBar: false,
+         closeOnClick: true,
+         pauseOnHover: false,
+         draggable: true,
+         progress: undefined,
+         theme: 'light',
+     });
  }
 
 export {
-  truncate,
-  genSlice,
-  copyClip
+    truncate,
+    genSlice,
+    copyClip
 };
+

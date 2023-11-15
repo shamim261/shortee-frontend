@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Form from './Form';
 
 export default function MainInput() {
@@ -26,8 +27,19 @@ export default function MainInput() {
                 url: updatedUrl,
             });
             if (data.success) {
-                alert(data.success);
-                navigate('/dashboard');
+                toast.success('URL Created Successfully! Redirecting to Dashboard...', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                });
+                setTimeout(() => {
+                    navigate('/dashboard');
+                }, 5000);
             } else if (data.errors) {
                 setError();
 
@@ -40,6 +52,7 @@ export default function MainInput() {
     return (
         <>
             <div className="">
+                <ToastContainer />
                 <Form onSubmit={submitHandler}>
                     <input
                         value={url}

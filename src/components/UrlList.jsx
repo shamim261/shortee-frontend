@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hashloader from 'react-spinners/HashLoader';
+import { ToastContainer } from 'react-toastify';
 import { copyClip, truncate } from '../utilities/util';
 export default function UrlList() {
     const [urls, setUrls] = useState([]);
@@ -24,6 +25,7 @@ export default function UrlList() {
         <div className="relative overflow-x-auto">
             {urls.length > 0 ? (
                 <table className="w-full text-md text-left text-gray-500 dark:text-gray-400">
+                    {<ToastContainer />}
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="px-6 py-3">
