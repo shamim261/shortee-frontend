@@ -1,18 +1,26 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Hashloader from 'react-spinners/HashLoader';
 import { copyClip, truncate } from '../utilities/util';
 export default function UrlList() {
     const [urls, setUrls] = useState([]);
+    const [spinner, setSpinner] = useState(true);
     useEffect(() => {
         async function getData() {
+            setSpinner(true);
             const { data } = await axios.get('api/urls');
             setUrls(data);
+            setSpinner(false);
         }
         getData();
     }, []);
 
-    return (
+    return spinner ? (
+        <div className="flex justify-center items-center  ">
+            <Hashloader size="50" color="#5A4AE3" loading={spinner} />
+        </div>
+    ) : (
         <div className="relative overflow-x-auto">
             {urls.length > 0 ? (
                 <table className="w-full text-md text-left text-gray-500 dark:text-gray-400">
