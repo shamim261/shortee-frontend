@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useAuth } from '../assets/contexts/AuthContext';
 import Form from './Form';
 import TextInput from './TextInput';
@@ -30,6 +31,16 @@ export default function SignupComponent() {
             if (data.id) {
                 dispatch({ type: 'USER_SIGN_IN', payload: data });
                 localStorage.setItem('userInfo', JSON.stringify(data));
+                toast.success('Account created Successfully! Redirecting to Dashboard...', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: true,
+                    progress: undefined,
+                    theme: 'light',
+                });
                 navigate('/dashboard');
             } else {
                 setError();
