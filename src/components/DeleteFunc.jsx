@@ -7,7 +7,9 @@ export default function DeleteFunc() {
 
     useEffect(() => {
         async function HandleDelete() {
-            const { data } = await axios.delete(`/api/urls/${shortID}`);
+            const { data } = await axios.delete(
+                `${import.meta.env.VITE_BACKEND_URL}/api/urls/${shortID}`
+            );
             navigate('/dashboard');
             console.log(data);
         }

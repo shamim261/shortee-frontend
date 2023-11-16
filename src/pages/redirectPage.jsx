@@ -9,7 +9,9 @@ export default function RedirectPage() {
     useEffect(() => {
         async function redirect() {
             try {
-                const { data } = await axios.get(`/api/urls/r/${shortID}`);
+                const { data } = await axios.get(
+                    `${import.meta.env.VITE_BACKEND_URL}/api/urls/r/${shortID}`
+                );
 
                 if (data && data.mainURL) {
                     setError('');

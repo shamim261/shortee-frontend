@@ -10,7 +10,7 @@ export default function UrlList() {
     useEffect(() => {
         async function getData() {
             setSpinner(true);
-            const { data } = await axios.get('api/urls');
+            const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/urls`);
             setUrls(data);
             setSpinner(false);
         }
