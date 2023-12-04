@@ -3,14 +3,22 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Hashloader from 'react-spinners/HashLoader';
 import { ToastContainer } from 'react-toastify';
+import { useAuth } from '../assets/contexts/AuthContext';
 import { copyClip, truncate } from '../utilities/util';
 export default function UrlList() {
+    const { state } = useAuth();
+    const { userInfo } = state;
+
     const [urls, setUrls] = useState([]);
     const [spinner, setSpinner] = useState(true);
     useEffect(() => {
         async function getData() {
             setSpinner(true);
-            const { data } = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/urls`);
+            const { data } = await axios.get(`/api/urls`, {
+                headers: {
+                    authorization: `Bearer ${userInfo.token}`,
+                },
+            });
             setUrls(data);
             setSpinner(false);
         }
@@ -55,10 +63,7 @@ export default function UrlList() {
                                     <Link to={url.mainURL}>{truncate(url.mainURL, 20)}</Link>
                                 </th>
                                 <td className="px-6 py-3 break-words flex">
-                                    <Link
-                                        target="_blank"
-                                        to={import.meta.env.VITE_APP_URL + '/' + url.shortURL}
-                                    >
+                                    <Link to={import.meta.env.VITE_APP_URL + '/' + url.shortURL}>
                                         <div className="w-32 md:w-full">
                                             {import.meta.env.VITE_APP_URL + '/' + url.shortURL}
                                         </div>

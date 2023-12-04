@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useState } from 'react';
 
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -21,21 +20,10 @@ export default function Header() {
     function toggleMobileMenu() {
         setMobileMenu((prevState) => !prevState);
     }
-    async function handleLogout() {
-        try {
-            const { data } = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/api/users`);
-            console.log(data);
-
-            if (data.success) {
-                dispatch({ type: 'USER_LOGOUT' });
-                localStorage.removeItem('userInfo');
-                navigate('/auth');
-            } else {
-                alert('failed');
-            }
-        } catch (err) {
-            console.log(err);
-        }
+    function handleLogout() {
+        dispatch({ type: 'USER_LOGOUT' });
+        localStorage.removeItem('userInfo');
+        navigate('/auth');
     }
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">

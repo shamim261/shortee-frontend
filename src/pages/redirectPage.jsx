@@ -9,9 +9,9 @@ export default function RedirectPage() {
     useEffect(() => {
         async function redirect() {
             try {
-                const { data } = await axios.get(
-                    `${import.meta.env.VITE_BACKEND_URL}/api/urls/r/${shortID}`
-                );
+                console.log('Triggered');
+
+                const { data } = await axios.get(`/api/urls/r/${shortID}`);
 
                 if (data && data.mainURL) {
                     setError('');
@@ -25,6 +25,6 @@ export default function RedirectPage() {
             }
         }
         redirect();
-    }, [shortID]);
+    });
     return <div className="text-2xl text-center"> {error ? error : 'Redirecting...'} </div>;
 }

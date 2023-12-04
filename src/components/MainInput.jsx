@@ -7,10 +7,11 @@ import Form from './Form';
 export default function MainInput() {
     const [url, setUrl] = useState('');
     const [error, setError] = useState();
-    const userInfo = localStorage.getItem('userInfo');
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
     const navigate = useNavigate();
 
     async function submitHandler(e) {
+        console.log(userInfo);
         e.preventDefault();
 
         let updatedUrl = url;
@@ -23,9 +24,17 @@ export default function MainInput() {
             navigate('/auth');
         }
         try {
-            const { data } = await axios.post('api/urls', {
-                url: updatedUrl,
-            });
+            const { data } = await axios.post(
+                'api/urls',
+                {
+                    url: updatedUrl,
+                },
+                {
+                    headers: {
+                        authorization: `Bearer ${userInfo.token}`,
+                    },
+                }
+            );
             if (data.success) {
                 toast.success('URL Created Successfully! Redirecting to Dashboard...', {
                     position: 'top-right',

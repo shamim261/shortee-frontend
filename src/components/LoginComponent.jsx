@@ -15,7 +15,7 @@ export default function LoginComponent() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, {
+            const { data } = await axios.post(`/api/users`, {
                 username: username,
                 password: password,
             });
