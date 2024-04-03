@@ -31,8 +31,12 @@ export default function Header() {
                 <a href="/" className="flex items-center">
                     <img src={logoBlue} className="h-8 mr-3" alt="Shortee Logo" />
                 </a>
-                <img src={user} className="md:hidden relative left-28 w-6 " alt="" />
-                <span className="md:hidden relative left-16 text-gray-500 mr-3">{username}</span>
+                <div className="flex gap-12 items-center justify-center">
+                    <img src={user} className="md:hidden relative left-28 w-6 " alt="" />
+                    <span className="md:hidden relative left-16 text-gray-500 mr-3">
+                        {username}
+                    </span>
+                </div>
                 <button
                     onClick={toggleMobileMenu}
                     data-collapse-toggle="navbar-default"

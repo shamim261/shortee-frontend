@@ -21,6 +21,7 @@ export default function MainInput() {
         }
 
         if (!userInfo) {
+            localStorage.setItem('tempURL', updatedUrl);
             navigate('/auth');
         }
         try {

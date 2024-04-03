@@ -25,6 +25,6 @@ export default function RedirectPage() {
             }
         }
         redirect();
-    });
+    }, [shortID]);
     return <div className="text-2xl text-center"> {error ? error : 'Redirecting...'} </div>;
 }

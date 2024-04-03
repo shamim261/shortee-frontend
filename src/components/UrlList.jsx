@@ -63,7 +63,10 @@ export default function UrlList() {
                                     <Link to={url.mainURL}>{truncate(url.mainURL, 20)}</Link>
                                 </th>
                                 <td className="px-6 py-3 break-words flex">
-                                    <Link to={import.meta.env.VITE_APP_URL + '/' + url.shortURL}>
+                                    <Link
+                                        target="_blank"
+                                        to={import.meta.env.VITE_APP_URL + '/' + url.shortURL}
+                                    >
                                         <div className="w-32 md:w-full">
                                             {import.meta.env.VITE_APP_URL + '/' + url.shortURL}
                                         </div>
